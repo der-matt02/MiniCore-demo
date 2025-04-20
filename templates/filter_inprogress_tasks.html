@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de tareas atrasadas</title>
+</head>
+
+<body>
+    <form method="post">
+        <!-- Colocar las fechas en formato %d-%m-%Y -->
+        <input type="date" name="start_date" id="start_date">
+        <input type="date" name="end_date" id="end_date">
+
+        <input type="submit" value="Filtrar">
+    </form>
+    <!-- Fecha de inicio -->
+    <p>Fecha de inicio: {{ request.start_date }}</p>
+    <!-- Fecha de fin -->
+    <p>Fecha de fin: {{ request.end_date }}</p>
+
+    <!-- Total de tasks -->
+    <p>Total de tareas: {{ tasks|length }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Empleado</th>
+                <th>Descripción</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de fin</th>
+                <th>Días pasados</th>
+                <th>Proyectos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.empleado }}</td>
+                <td>{{ task.descripcion }}</td>
+                <td>{{ task.fecha_inicio }}</td>
+                <td>{{ task.fecha_fin }}</td>
+                <td>{{ task.dias_pasados }}</td>
+                <td>{{ task.proyecto }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

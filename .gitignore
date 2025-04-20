@@ -1,0 +1,25 @@
+# Base de datos SQLite (se genera al arrancar)
+MiniCore.db
+*.sqlite
+db/*.db
+
+# Entornos virtuales / intérpretes locales
+.env
+env/
+venv/
+__pypackages__/
+
+# Cachés de Python
+__pycache__/
+*.py[cod]
+
+# Ficheros temporales y logs
+*.log
+*.tmp
+
+# IDEs
+.vscode/
+.idea/
+
+# Otros artefactos
+*.orig
